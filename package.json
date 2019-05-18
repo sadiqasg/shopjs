@@ -1,0 +1,41 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "shoping app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "nyc mocha spec/*.js --exit",
+    "test-dev": "istanbul cover --include-all-sources jasmine-node spec",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls"
+  },
+  "author": "abubakar sambo",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "jasmine-node": "^1.16.2",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^6.1.2",
+    "nodemon": "^1.19.0",
+    "nyc": "^14.0.0",
+    "pg": "^7.9.0",
+    "pug": "^2.0.3",
+    "request": "^2.88.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "jasmine": "^3.4.0"
+  }
+}
