@@ -4,6 +4,9 @@ const path = require('path');
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 const adminData = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
@@ -16,7 +19,8 @@ app.use('/admin', adminData.router);
 app.use(shopRoutes);
 
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'error.html'));
+  res.status(404).render('404', { pageTitle: 'Page Not Found' });
+  // res.sendFile(path.join(__dirname, 'views', 'error.html'));
 });
 
 app.listen(port, () => console.log(`server running on port ${port}`));
