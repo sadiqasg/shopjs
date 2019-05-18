@@ -2,25 +2,10 @@ const express = require('express');
 // const path = require('path');
 
 const router = express.Router();
+const productsController = require('../controllers/products');
 
-const products = [];
+router.get('/add-product', productsController.getAddProduct);
 
-router.get('/add-product', (req, res) => {
-  res.render('add-product', {
-    pageTitle: 'Add Products',
-  });
-});
+router.post('/add-product', productsController.postAddProduct);
 
-router.post('/add-product', (req, res) => {
-  products.push({ title: req.body.title });
-  res.redirect('/');
-});
-
-// maxmillan s-muller method
-// exports.routes = router;
-// exports.products == products;
-
-module.exports = {
-  router,
-  products,
-};
+module.exports = router;
